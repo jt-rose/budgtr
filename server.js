@@ -6,6 +6,9 @@ const main = async () => {
   // initialize app
   const app = express();
 
+  // set up static assets
+  app.use(express.static("public"));
+
   // connect to mongo
   mongoose.connect("mongodb://localhost:27017/fruits", () => {
     console.log("mongoose connected");
