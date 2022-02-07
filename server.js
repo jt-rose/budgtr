@@ -35,9 +35,12 @@ const main = async () => {
     res.send("posted!");
   });
 
-  app.get("/budgets/:id", async (req, res) => {
+  app.get("/budgets/:budgetid", async (req, res) => {
+    const { budgetid } = req.params;
+    const budgetItem = await Budget.findById(budgetid);
     res.render("show.ejs", {
       title: "Show",
+      budgetItem,
     });
   });
 
