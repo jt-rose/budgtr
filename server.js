@@ -16,7 +16,7 @@ const main = async () => {
 
   // routes
   app.get("/budgets", async (_req, res) => {
-    res.send("Index Page");
+    res.render("index.ejs");
   });
 
   // form to add a new budget item
