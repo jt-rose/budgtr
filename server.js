@@ -16,8 +16,10 @@ const main = async () => {
 
   // routes
   app.get("/budgets", async (_req, res) => {
+    const budgetItems = await Budget.find();
     res.render("index.ejs", {
       title: "Home",
+      budgetItems,
     });
   });
 

@@ -3,5 +3,10 @@
   <%- include('partials/head.ejs') %>
   <body>
     <h1>Index Page</h1>
+    <ul>
+      <% for (let i = 0; i < budgetItems.length; i++) { %>
+      <li><%=budgetItems[i].name + ": " + budgetItems[i].amount %></li>
+      <% } %>
+    </ul>
   </body>
 </html>
