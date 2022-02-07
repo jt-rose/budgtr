@@ -23,7 +23,9 @@ const main = async () => {
 
   // form to add a new budget item
   app.get("/budgets/new", (_req, res) => {
-    res.send("add new item");
+    res.render("new.ejs", {
+      title: "New",
+    });
   });
 
   // post method to receive the above form and update the database
@@ -32,7 +34,9 @@ const main = async () => {
   });
 
   app.get("/budgets/:id", async (req, res) => {
-    res.send("individual item");
+    res.render("show.ejs", {
+      title: "Show",
+    });
   });
 
   // start server
