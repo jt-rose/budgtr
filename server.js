@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Budget = require("./models/Budget");
 
+const bankAccount = 500;
+
 const main = async () => {
   // initialize app
   const app = express();
@@ -20,9 +22,15 @@ const main = async () => {
   // routes
   app.get("/budgets", async (_req, res) => {
     const budgetItems = await Budget.find();
+    console.log(budgetItems);
+    const totalBudgetUpdates = budgetItems.reduce((x, y) => x + y.amount, 0);
+    console.log(totalBudgetUpdates);
+    const balance = bankAccount + totalBudgetUpdates;
     res.render("index.ejs", {
       title: "Home",
       budgetItems,
+      balance,
+      balanceColor: balance > 0 ? "blue" : "red",
     });
   });
 

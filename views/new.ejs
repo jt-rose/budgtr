@@ -2,18 +2,27 @@
 <html lang="en">
   <%- include('partials/head.ejs') %>
   <body>
-    <h1>New Page</h1>
-    <form action="/budgets" method="post">
-      Date: <input type="text" name="date" id="" required />
-      <br />
-      Name: <input type="text" name="name" id="" required />
-      <br />
-      From: <input type="text" name="from" id="" required />
-      <br />
-      Amount: <input type="number" name="amount" id="" required />
-      <br />
-      <!-- add form element for tags -->
-      <input type="submit" value="Add Budget Item" />
-    </form>
+    <a href="/budgets"><button type="reset">Back</button></a>
+    <div class="container">
+      <h1>Add New Budget Item</h1>
+      <form action="/budgets" method="post">
+        <input type="text" name="date" id="" required placeholder="date" />
+        <br />
+        <input type="text" name="name" id="" required placeholder="name" />
+        <br />
+        <input type="text" name="from" id="" required placeholder="from" />
+        <br />
+        <input
+          type="number"
+          name="amount"
+          id=""
+          required
+          placeholder="amount"
+        />
+        <br />
+        <!-- add form element for tags -->
+        <input type="submit" value="Add Budget Item" />
+      </form>
+    </div>
   </body>
 </html>
