@@ -3,5 +3,17 @@
   <%- include('partials/head.ejs') %>
   <body>
     <h1>New Page</h1>
+    <form action="/budget" method="post">
+      Date: <input type="text" name="date" id="" required />
+      <br />
+      Name: <input type="text" name="name" id="" required />
+      <br />
+      From: <input type="text" name="from" id="" required />
+      <br />
+      Amount: <input type="number" name="amount" id="" required />
+      <br />
+      <!-- add form element for tags -->
+      <input type="submit" value="Add Budget Item" />
+    </form>
   </body>
 </html>
