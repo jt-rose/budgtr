@@ -9,6 +9,9 @@ const main = async () => {
   // set up static assets
   app.use(express.static("public"));
 
+  // set up body parser
+  app.use(express.urlencoded({ extended: true }));
+
   // connect to mongo
   mongoose.connect("mongodb://localhost:27017/fruits", () => {
     console.log("mongoose connected");
@@ -31,8 +34,9 @@ const main = async () => {
   });
 
   // post method to receive the above form and update the database
-  app.post("/budgets", (req, res) => {
-    res.send("posted!");
+  app.post("/budgets", async (req, res) => {
+    await new Budget(req.body).save();
+    res.redirect("/budgets");
   });
 
   app.get("/budgets/:budgetid", async (req, res) => {
