@@ -2,7 +2,13 @@
 <html lang="en">
   <%- include('partials/head.ejs') %>
   <body>
-    <h1>Show Page</h1>
-    <p><%=budgetItem %></p>
+    <div class="container">
+      <a href="/budgets"><button type="reset">Back</button></a>
+      <h1><%=budgetItem.name %></h1>
+    </div>
+
+    <p><%=budgetItem.date %></p>
+    <p><%=budgetItem.from %></p>
+    <p><%=budgetItem.amount %></p>
   </body>
 </html>
