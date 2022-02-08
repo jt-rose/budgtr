@@ -3,14 +3,16 @@
   <%- include('partials/head.ejs') %>
   <body>
     <h1>Index Page</h1>
-    <ul>
-      <% for (let i = 0; i < budgetItems.length; i++) { %>
-      <li>
-        <a href="/budgets/<%=budgetItems[i]._id %>"
-          ><%=budgetItems[i].name + ": " + budgetItems[i].amount %></a
-        >
-      </li>
-      <% } %>
-    </ul>
+    <table>
+        <% for (let i = 0; i < budgetItems.length; i++) { %>
+            <tr>
+                <td><%=budgetItems[i].date %></td>
+                <td><a href="/budgets/<%=budgetItems[i]._id %>"
+                    ><%=budgetItems[i].name %></a</td>
+                <td><%=budgetItems[i].from %></td>
+                <td><%=budgetItems[i].amount %></td>
+            </tr>
+            <% } %>
+    </table>
   </body>
 </html>
